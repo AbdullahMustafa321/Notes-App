@@ -6,17 +6,11 @@ class NotesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Column(
-        children: [
-          Text('Hello New notes App'),
-          Text('Hello New notes App'),
-          Text('Hello New notes App'),
-          Text('Hello New notes App'),
-          Text('Hello New notes App'),
-          Text('Hello New notes App'),
-        ],
-      ),),
+    return  const Scaffold(
+      body: Center(
+        child: Text('Hello'),
+      )
     );
-  }
+
+}
 }
