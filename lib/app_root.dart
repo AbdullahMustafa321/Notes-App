@@ -10,13 +10,15 @@ class AppRoot extends StatelessWidget {
     return ScreenUtilInit(
       splitScreenMode: true,
       minTextAdapt: true,
-      designSize: Size(360, 690),
+      designSize: const Size(360, 690),
       builder: (_, context) {
         return MaterialApp(
-          theme: ThemeData(brightness: Brightness.dark),
+          theme: ThemeData(brightness: Brightness.dark,
+          scaffoldBackgroundColor: const Color(0xff383838),
+          appBarTheme: const AppBarTheme(color: Color(0xff383838))),
           debugShowCheckedModeBanner: false,
           routes: {
-            NotesScreen.id: (context) => NotesScreen(),
+            NotesScreen.id: (context) => const NotesScreen(),
           },
           initialRoute: NotesScreen.id,
         );
