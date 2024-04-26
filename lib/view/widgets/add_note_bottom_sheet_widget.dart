@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:notes_app/view/widgets/custom_tet_field_widget.dart';
+import 'package:notes_app/view/widgets/custom_button_widget.dart';
+import 'package:notes_app/view/widgets/custom_text_field_widget.dart';
 
 class AddNoteBottomSheetWidget extends StatelessWidget {
   const AddNoteBottomSheetWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 350.h,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
@@ -30,9 +30,12 @@ class AddNoteBottomSheetWidget extends StatelessWidget {
               hintText: 'Enter Your Content',
             ),
             SizedBox(
-              height: 20.h,
+              height: 30.h,
             ),
-            ElevatedButton(onPressed: (){}, child: Text('Save'))
+            const CustomButtonWidget(),
+            SizedBox(
+              height: 30.h,
+            ),
           ],
         ),
       ),
