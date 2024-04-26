@@ -4,8 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/view/screens/edit_note_screen.dart';
 
 class NotesBodyWidget extends StatelessWidget {
-  const NotesBodyWidget({super.key, required this.color});
-final Color color;
+  const NotesBodyWidget({super.key});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,7 +17,8 @@ final Color color;
             padding: EdgeInsets.only(top: 10.h, bottom: 10.h),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.r),
-                color: color),
+                color:   Color(0xffFFCD7A),
+            ),
             child: Column(
               children: [
                 ListTile(

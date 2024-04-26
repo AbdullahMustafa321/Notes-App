@@ -17,7 +17,7 @@ final IconData icon;
         ),
         child: Icon(
           icon,
-          size: 30.sp,
+          size: 20.sp,
         ),
       ),
     );
