@@ -15,7 +15,7 @@ class NotesScreen extends StatelessWidget{
         body: SafeArea(
           child: Padding(
             padding:  EdgeInsets.symmetric(vertical: 5.h,horizontal: 12.w),
-            child: Column(
+            child: ListView(
               children: [
                 const CustomAppBarWidget(),
                 SizedBox(height: 20.h,),

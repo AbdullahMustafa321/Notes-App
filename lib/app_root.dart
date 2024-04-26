@@ -13,7 +13,9 @@ class AppRoot extends StatelessWidget {
       designSize: const Size(360, 690),
       builder: (_, context) {
         return MaterialApp(
-          theme: ThemeData(brightness: Brightness.dark,
+          theme: ThemeData(
+            fontFamily: 'Poppins',
+              brightness: Brightness.dark,
           scaffoldBackgroundColor: const Color(0xff383838),
           appBarTheme: const AppBarTheme(color: Color(0xff383838))),
           debugShowCheckedModeBanner: false,

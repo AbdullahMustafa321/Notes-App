@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomElevatedButtonWidget extends StatelessWidget {
@@ -6,6 +5,8 @@ class CustomElevatedButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: (){}, child: Icon(Icons.add));
+    return Align(
+      alignment: Alignment.bottomRight,
+        child: ElevatedButton(onPressed: (){}, child: const Icon(Icons.add)));
   }
 }

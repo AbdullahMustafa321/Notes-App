@@ -8,49 +8,49 @@ class NotesBodyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200.h,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15.r),
-          color: const Color(0xffFFCD7A)),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8.w),
+        padding: EdgeInsets.only(top: 10.h, bottom: 10.h),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15.r),
+            color: const Color(0xffFFCD7A)),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Flutter tips',
+            ListTile(
+              title: Text(
+                'Flutter tips',
+                style: TextStyle(fontSize: 30.sp, color: Colors.black),
+              ),
+              subtitle: Padding(
+                padding: EdgeInsets.only(top: 20.h),
+                child: const Text(
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  'Build your creare with Abdullah MustafaBuild your creare with Abdullah MustafaBuild your creare with Abdullah MustafaBuild your creare with Abdullah MustafaBuild your creare with Abdullah Mustafa',
                   style: TextStyle(
-                      fontSize: 30.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-                const Icon(FontAwesomeIcons.trash, color: Colors.black),
-              ],
-            ),
-            const Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    'Build your creare with Abdullah Mustafa',
-                    style: TextStyle(
-                      color: Colors.black26,
-                    ),
+                    color: Colors.black26,
                   ),
                 ),
-                 Text(
+              ),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  FontAwesomeIcons.trash,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: EdgeInsets.only(top: 30.h, right: 8.w),
+                child: const Text(
                   'May 21,2024',
                   style: TextStyle(
                     color: Colors.black26,
                   ),
-                )
-              ],
+                ),
+              ),
             )
           ],
-        ),
-      ),
-    );
+        ));
   }
 }
