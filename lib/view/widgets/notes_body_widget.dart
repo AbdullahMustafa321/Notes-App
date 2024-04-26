@@ -3,17 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NotesBodyWidget extends StatelessWidget {
-  const NotesBodyWidget({super.key});
-
+  const NotesBodyWidget({super.key, required this.color});
+final Color color;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 5.h),
+      padding: EdgeInsets.symmetric(vertical: 3.h),
       child: Container(
           padding: EdgeInsets.only(top: 10.h, bottom: 10.h),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15.r),
-              color: const Color(0xffFFCD7A)),
+              color: color),
           child: Column(
             children: [
               ListTile(
