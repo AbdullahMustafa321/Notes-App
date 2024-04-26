@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:notes_app/view/screens/edit_note_screen.dart';
 import 'package:notes_app/view/screens/notes_screen.dart';
 
 import 'constant/colors.dart';
@@ -25,6 +26,7 @@ class AppRoot extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           routes: {
             NotesScreen.id: (context) => const NotesScreen(),
+            EditNoteScreen.id: (context) => const EditNoteScreen()
           },
           initialRoute: NotesScreen.id,
         );

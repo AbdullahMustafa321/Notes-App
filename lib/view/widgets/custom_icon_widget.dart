@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomSearchIconWidget extends StatelessWidget {
-  const CustomSearchIconWidget({super.key});
-
+class CustomIconWidget extends StatelessWidget {
+  const CustomIconWidget({super.key, required this.icon});
+final IconData icon;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -16,7 +16,7 @@ class CustomSearchIconWidget extends StatelessWidget {
           color: Colors.grey.withOpacity(0.1),
         ),
         child: Icon(
-          Icons.search,
+          icon,
           size: 30.sp,
         ),
       ),
