@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:notes_app/view/screens/notes_screen.dart';
 
+import 'constant/colors.dart';
+import 'constant/constant.dart';
+
 class AppRoot extends StatelessWidget {
   const AppRoot({super.key});
 
@@ -15,7 +18,8 @@ class AppRoot extends StatelessWidget {
         return MaterialApp(
           theme: ThemeData(
             fontFamily: 'Poppins',
-              brightness: Brightness.dark,
+              colorScheme: const ColorScheme.dark()
+                  .copyWith(primary:kPrimaryColor),
           scaffoldBackgroundColor: const Color(0xff383838),
           appBarTheme: const AppBarTheme(color: Color(0xff383838))),
           debugShowCheckedModeBanner: false,
