@@ -4,7 +4,7 @@ import 'package:notes_app/view/screens/edit_note_screen.dart';
 import 'package:notes_app/view/screens/notes_screen.dart';
 
 import 'constant/colors.dart';
-import 'constant/constant.dart';
+import 'constant/strings.dart';
 
 class AppRoot extends StatelessWidget {
   const AppRoot({super.key});
