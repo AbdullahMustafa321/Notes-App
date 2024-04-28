@@ -1,11 +1,14 @@
-import 'package:flutter/cupertino.dart';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:notes_app/cubits/add_note_cubit/add_notes_cubit.dart';
+import 'package:notes_app/models/note_model.dart';
 
 import 'custom_button_widget.dart';
 import 'custom_text_field_widget.dart';
 
 class AddNoteFormWidget extends StatefulWidget {
-
   const AddNoteFormWidget({
     super.key,
   });
@@ -29,8 +32,8 @@ class _AddNoteFormWidgetState extends State<AddNoteFormWidget> {
           SizedBox(
             height: 30.h,
           ),
-           CustomTextFieldWidget(
-            onSaved: (value){
+          CustomTextFieldWidget(
+            onSaved: (value) {
               title = value;
             },
             label: 'Title',
@@ -39,28 +42,33 @@ class _AddNoteFormWidgetState extends State<AddNoteFormWidget> {
           SizedBox(
             height: 20.h,
           ),
-           CustomTextFieldWidget(
-             onSaved: (value){
-               content = value;
-             },
-            maxLines:5,
+          CustomTextFieldWidget(
+            onSaved: (value) {
+              content = value;
+            },
+            maxLines: 5,
             label: 'Content',
             hintText: 'Enter Your Content',
           ),
           SizedBox(
             height: 30.h,
           ),
-           CustomButtonWidget(
+          CustomButtonWidget(
             onTap: () {
-            if(globalKey.currentState!.validate()){
-              globalKey.currentState!.save();
-            }else{
-              autovalidateMode = AutovalidateMode.always;
-              setState(() {
-
-              });
-            }
-          },),
+              if (globalKey.currentState!.validate()) {
+                globalKey.currentState!.save();
+                var noteModel = NoteModel(
+                    title: title!,
+                    content: content!,
+                    date: DateTime.now().toString(),
+                    color: Colors.orangeAccent.value);
+                BlocProvider.of<AddNotesCubit>(context).addNote(noteModel);
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
+            },
+          ),
           SizedBox(
             height: 30.h,
           ),

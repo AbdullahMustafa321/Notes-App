@@ -15,24 +15,19 @@ class AppRoot extends StatelessWidget {
       minTextAdapt: true,
       designSize: const Size(360, 690),
       builder: (_, context) {
-        return MultiBlocProvider(
-          providers: [
-            BlocProvider(create: (context)=> AddNotesCubit()),
-          ],
-          child: MaterialApp(
-            theme: ThemeData(
-              fontFamily: 'Poppins',
-                colorScheme: const ColorScheme.dark()
-                    .copyWith(primary:kPrimaryColor),
-            scaffoldBackgroundColor: const Color(0xff383838),
-            appBarTheme: const AppBarTheme(color: Color(0xff383838))),
-            debugShowCheckedModeBanner: false,
-            routes: {
-              NotesScreen.id: (context) => const NotesScreen(),
-              EditNoteScreen.id: (context) => const EditNoteScreen()
-            },
-            initialRoute: NotesScreen.id,
-          ),
+        return MaterialApp(
+          theme: ThemeData(
+            fontFamily: 'Poppins',
+              colorScheme: const ColorScheme.dark()
+                  .copyWith(primary:kPrimaryColor),
+          scaffoldBackgroundColor: const Color(0xff383838),
+          appBarTheme: const AppBarTheme(color: Color(0xff383838))),
+          debugShowCheckedModeBanner: false,
+          routes: {
+            NotesScreen.id: (context) => const NotesScreen(),
+            EditNoteScreen.id: (context) => const EditNoteScreen()
+          },
+          initialRoute: NotesScreen.id,
         );
       },
     );

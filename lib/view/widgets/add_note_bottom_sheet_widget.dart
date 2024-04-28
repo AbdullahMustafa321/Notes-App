@@ -2,9 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_notes_cubit.dart';
-import 'package:notes_app/view/widgets/custom_button_widget.dart';
-import 'package:notes_app/view/widgets/custom_text_field_widget.dart';
 
 import 'add_note_form_widget.dart';
 
@@ -13,24 +12,29 @@ class AddNoteBottomSheetWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child:  SingleChildScrollView(
+    return BlocProvider(
+      create: (context) => AddNotesCubit(),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: BlocConsumer<AddNotesCubit, AddNotesState>(
           listener: (context, state) {
-            if(state is AddNotesFailure){
+            if (state is AddNotesFailure) {
               print('failied ${state.errorMessage}');
             }
-            if(state is AddNotesSuccess){
+            if (state is AddNotesSuccess) {
               Navigator.pop(context);
             }
           },
           builder: (context, state) {
-            return AddNoteFormWidget();
+            return ModalProgressHUD(
+              inAsyncCall: state is AddNotesLoading ? true : false,
+              child: const SingleChildScrollView(
+                child: AddNoteFormWidget(),
+              ),
+            );
           },
         ),
       ),
     );
   }
 }
-

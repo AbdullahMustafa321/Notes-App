@@ -12,8 +12,8 @@ addNote(NoteModel note)async{
   emit(AddNotesLoading());
   try {
     var noteBox = Hive.box<NoteModel>(kNoteBox);
-    emit(AddNotesSuccess());
     await noteBox.add(note);
+    emit(AddNotesSuccess());
   }  catch (e) {
     emit(AddNotesFailure(e.toString()));
   }
