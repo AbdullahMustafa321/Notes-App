@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -63,7 +65,7 @@ class _AddNoteFormWidgetState extends State<AddNoteFormWidget> {
                         title: title!,
                         content: content!,
                         date: DateTime.now().toString(),
-                        color: Colors.orangeAccent.value);
+                        color: Color(Random().nextInt(0xffffffff)).value);
                     BlocProvider.of<AddNotesCubit>(context).addNote(noteModel);
                   } else {
                     autovalidateMode = AutovalidateMode.always;
