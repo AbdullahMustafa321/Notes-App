@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 
@@ -64,7 +65,7 @@ class _AddNoteFormWidgetState extends State<AddNoteFormWidget> {
                     var noteModel = NoteModel(
                         title: title!,
                         content: content!,
-                        date: DateTime.now().toString(),
+                        date: DateFormat.yMEd().format(DateTime.now()),
                         color: Color(Random().nextInt(0xffffffff)).value);
                     BlocProvider.of<AddNotesCubit>(context).addNote(noteModel);
                   } else {
