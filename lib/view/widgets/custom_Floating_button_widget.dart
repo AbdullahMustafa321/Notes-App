@@ -10,7 +10,8 @@ class CustomFloatingButtonWidget extends StatelessWidget {
     return FloatingActionButton(
       shape: const CircleBorder(),
       onPressed: () {
-        showBottomSheet(
+        showModalBottomSheet(
+          isScrollControlled: true,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15)
           ),

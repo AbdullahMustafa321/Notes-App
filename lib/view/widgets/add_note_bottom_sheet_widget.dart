@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_notes_cubit.dart';
 
 import 'add_note_form_widget.dart';
@@ -26,15 +25,15 @@ class AddNoteBottomSheetWidget extends StatelessWidget {
         builder: (context, state) {
           return AbsorbPointer(
             absorbing: state is AddNotesLoading? true:false,
-            child: ModalProgressHUD(
-              inAsyncCall: state is AddNotesLoading ? true : false,
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                padding: EdgeInsets.only(
+                    left: 16.w,
+                right: 16.w,
+                bottom: MediaQuery.of(context).viewInsets.bottom),
                 child: const SingleChildScrollView(
                   child: AddNoteFormWidget(),
                 ),
               ),
-            ),
           );
         },
       ),
