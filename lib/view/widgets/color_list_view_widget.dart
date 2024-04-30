@@ -1,5 +1,3 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:notes_app/view/widgets/color_item_widget.dart';
@@ -12,29 +10,38 @@ class ColorListView extends StatefulWidget {
 }
 
 class _ColorListViewState extends State<ColorListView> {
-List<Color> colors=[
-  Colors.orange,
-  Colors.yellow,
-  Colors.blue,
-  Colors.greenAccent,
-  Colors.indigo,
-  Colors.pink,
-  Colors.yellowAccent,
-  Colors.redAccent,
-  Colors.green,
-  Colors.limeAccent,
-];
+  List<Color> colors = [
+    const Color(0xffFE6847),
+    const Color(0xffD81159),
+    const Color(0xff8F2D56),
+    const Color(0xff218380),
+    const Color(0xffFBB13C),
+    const Color(0xffB66D0D),
+    const Color(0xff73D2DE),
+    const Color(0xff2176AE),
+  ];
+  int? currentIndex ;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height:64.h,
+      height: 64.h,
       child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: colors.length,
-          itemBuilder: (context,index){
-        return  ColorItemWidget(color: colors[index],);
-      }),
+          scrollDirection: Axis.horizontal,
+          itemCount: colors.length,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: (){
+                currentIndex = index;
+                setState(() {
+                });
+              },
+              child: ColorItemWidget(
+                color: colors[index],
+                isActive: currentIndex == index,
+              ),
+            );
+          }),
     );
   }
 }
