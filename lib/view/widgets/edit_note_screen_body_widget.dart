@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/view/widgets/custom_app_bar_widget.dart';
+import 'package:notes_app/view/widgets/edit_colors_list_view_widget.dart';
 
 import '../../models/note_model.dart';
 import 'custom_text_field_widget.dart';
@@ -58,6 +59,10 @@ class _EditNoteScreenBodyWidgetState extends State<EditNoteScreenBodyWidget> {
             maxLines: 5,
             hintText: widget.note.content,
           ),
+          SizedBox(
+            height: 20.h,
+          ),
+           EditColorsListViewWidget(note: widget.note,)
         ],
       ),
     ));

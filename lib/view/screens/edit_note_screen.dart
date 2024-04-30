@@ -6,6 +6,7 @@ import '../widgets/edit_note_screen_body_widget.dart';
 
 class EditNoteScreen extends StatelessWidget {
   const EditNoteScreen({super.key, required this.note});
+
   final NoteModel note;
   @override
   Widget build(BuildContext context) {
