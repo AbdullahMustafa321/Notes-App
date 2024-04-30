@@ -34,7 +34,7 @@ class _NotesScreenState extends State<NotesScreen> {
             child: const Column(
               children: [
                 CustomAppBarWidget(
-                  title: 'Notes', icon: FontAwesomeIcons.magnifyingGlass,),
+                  title: 'Notes', icon: FontAwesomeIcons.magnifyingGlass, isThereIcon: false,),
                 Expanded(
                   child: NotesListViewWidget(),
                 ),

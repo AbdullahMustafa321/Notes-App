@@ -5,11 +5,12 @@ import 'package:notes_app/view/widgets/custom_icon_widget.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
   const CustomAppBarWidget({
-    super.key, required this.title, required this.icon, this.onPressed,
+    super.key, required this.title, required this.icon, this.onPressed, required this.isThereIcon,
   });
 final String title;
 final IconData icon;
 final void Function()? onPressed;
+final bool isThereIcon;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,9 +20,9 @@ final void Function()? onPressed;
           title,
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.sp),
         ),
-         CustomIconWidget(
+         isThereIcon?CustomIconWidget(
            onPressed: onPressed,
-           icon: icon,),
+           icon: icon,):Container(),
       ],
     );
   }

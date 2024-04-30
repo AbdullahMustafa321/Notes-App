@@ -37,7 +37,7 @@ class _EditNoteScreenBodyWidgetState extends State<EditNoteScreenBodyWidget> {
               Navigator.pop(context);
             },
             title: 'Edit Note',
-            icon: FontAwesomeIcons.check,
+            icon: FontAwesomeIcons.check, isThereIcon: true,
           ),
           SizedBox(
             height: 30.h,
