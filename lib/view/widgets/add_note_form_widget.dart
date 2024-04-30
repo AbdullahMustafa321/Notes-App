@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_notes_cubit.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
+import 'package:notes_app/view/widgets/color_list_view_widget.dart';
 
 import 'custom_button_widget.dart';
 import 'custom_text_field_widget.dart';
@@ -54,7 +55,11 @@ class _AddNoteFormWidgetState extends State<AddNoteFormWidget> {
             hintText: 'Enter Your Content',
           ),
           SizedBox(
-            height: 30.h,
+            height: 15.h,
+          ),
+          const ColorListView(),
+          SizedBox(
+            height: 15.h,
           ),
           BlocBuilder<AddNotesCubit, AddNotesState>(
             builder: (context, state) {
@@ -67,7 +72,7 @@ class _AddNoteFormWidgetState extends State<AddNoteFormWidget> {
                         title: title!,
                         content: content!,
                         date: DateFormat.yMEd().format(DateTime.now()),
-                        color: Color(Random().nextInt(0xffffffff)).value);
+                        color: Color(Random().nextInt(Colors.blue.value)).value);
                     BlocProvider.of<AddNotesCubit>(context).addNote(noteModel);
                     BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                   } else {

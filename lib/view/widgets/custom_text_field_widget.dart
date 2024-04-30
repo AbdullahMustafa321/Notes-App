@@ -6,15 +6,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomTextFieldWidget extends StatelessWidget {
   const CustomTextFieldWidget(
       {super.key,
-      required this.label,
+       this.label,
       required this.hintText,
       this.maxLines = 1,
-      this.onSaved});
+      this.onSaved, this.onChanged});
 
-  final String label;
+  final String? label;
   final String hintText;
   final int maxLines;
   final void Function(String?)? onSaved;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +29,14 @@ class CustomTextFieldWidget extends StatelessWidget {
               return null;
             }
           },
+          onChanged: onChanged,
           onSaved: onSaved,
           maxLines: maxLines,
           cursorColor: Colors.white,
           decoration: InputDecoration(
             border: buildBorder(),
             enabledBorder: buildBorder(Colors.white),
-            label: Text(label),
+            labelText: label,
             hintText: hintText,
           ),
         ),

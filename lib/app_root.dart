@@ -29,7 +29,6 @@ class AppRoot extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             routes: {
               NotesScreen.id: (context) => const NotesScreen(),
-              EditNoteScreen.id: (context) => const EditNoteScreen()
             },
             initialRoute: NotesScreen.id,
           ),

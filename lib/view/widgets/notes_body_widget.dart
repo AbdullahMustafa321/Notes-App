@@ -19,10 +19,10 @@ class NotesBodyWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 3.h),
       child: GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, EditNoteScreen.id);
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>EditNoteScreen(note: note)));
         },
         child: Slidable(
-          key: const ValueKey(0),
+          key: UniqueKey(),
           startActionPane: ActionPane(
             dismissible: DismissiblePane(
               onDismissed: () {
@@ -52,14 +52,14 @@ class NotesBodyWidget extends StatelessWidget {
                   ListTile(
                     title: Text(
                       note.title,
-                      style: TextStyle(fontSize: 30.sp, color: Colors.black),
+                      style: TextStyle(fontSize: 30.sp, color: Colors.white),
                     ),
                     subtitle: Padding(
                       padding: EdgeInsets.only(top: 20.h),
                       child: Text(
                         note.content,
-                        style: const TextStyle(
-                          color: Colors.black26,
+                        style:  TextStyle(
+                          color: Colors.white.withOpacity(0.7),
                         ),
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
@@ -94,7 +94,7 @@ class NotesBodyWidget extends StatelessWidget {
                       },
                       icon: const Icon(
                         FontAwesomeIcons.trash,
-                        color: Colors.black,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -104,8 +104,8 @@ class NotesBodyWidget extends StatelessWidget {
                       padding: EdgeInsets.only(top: 30.h, right: 61.w),
                       child: Text(
                         note.date,
-                        style: const TextStyle(
-                          color: Colors.black26,
+                        style:  TextStyle(
+                          color: Colors.white.withOpacity(0.7),
                         ),
                       ),
                     ),
